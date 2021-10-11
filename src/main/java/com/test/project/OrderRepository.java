@@ -11,5 +11,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     // custom query to search to item by name
     List<Order> findByItem(String item);
+    Order findById(int id);
 
 }

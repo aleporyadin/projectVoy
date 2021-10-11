@@ -2,11 +2,14 @@ package com.test.project;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 public class OrderController {
@@ -15,43 +18,63 @@ public class OrderController {
     private  OrderRepository orderRep;
 
     @GetMapping("/")
-    public List<Order> index(){
-        return (List<Order>) orderRep.findAll();
+    public ModelAndView index(Model model){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
     }
 
-    @GetMapping("/{id}")
-    public Order show(@PathVariable int id){
-        Optional<Order> orderId= orderRep.findById(id);
-        Order order = orderId.get();
-        return order;
-    }
+    @PostMapping("/result")
+    public ModelAndView listItem(@RequestParam(name="item") String _item,
+                                 @RequestParam(name="price") int _price,
+                                 @RequestParam(name="quantity") int _quantity
+            ,Model model) {
 
+        for (Order o : orderRep.findAll()) {
+            Date now = new Date();
+            if ((now.getTime()/1000 - o.getLive_Timer()) >= 600)
+                orderRep.deleteById(o.getId());
+        }
+        try{
+            orderRep.save(new Order(_item,_price,_quantity));
+
+        }catch (Exception e){
+            System.out.println("err");
+        }
+
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("result");
+        modelAndView.addObject("orders", orderRep.findAll());
+        return modelAndView;
+    }
+    @GetMapping("/result")
+    public ModelAndView listItem(Model model) {
+        for (Order o : orderRep.findAll()) {
+            Date now = new Date();
+            if ((now.getTime()/1000 - o.getLive_Timer()) >= 600)
+                orderRep.deleteById(o.getId());
+        }
+        Iterable<Order>orders = orderRep.findAll();
+        model.addAttribute("orders",orders);
+
+        return new ModelAndView("result");
+    }
     @PostMapping("/search")
     public List<Order> search(@RequestBody Map<String, String> body){
         String searchItem = body.get("item");
         return orderRep.findByItem(searchItem);
     }
 
-    @PostMapping("/")
-    public Order create(@RequestBody Map<String, String> body){
-        String item = body.get("item");
-        int price = Integer.parseInt(body.get("price"));
-        int quantity = Integer.parseInt(body.get("quantity"));
-
-        return orderRep.save(new Order(item, price,quantity));
-    }
-
     @PutMapping("/{id}")
     public Order update(@PathVariable String id, @RequestBody Map<String, String> body){
         int orderId = Integer.parseInt(id);
-        // getting blog
-        Optional<Order> order = orderRep.findById(orderId);
-        order.get().setItem(body.get("item"));
-        order.get().setPrice(Integer.parseInt(body.get("price")));
-        order.get().setQuantity(Integer.parseInt("quantity"));
-        return orderRep.save(order.get());
-
-
+        // geting order
+        Order order = orderRep.findById(orderId);
+        order.setItem(body.get("item"));
+        order.setPrice(Integer.parseInt(body.get("price")));
+        order.setQuantity(Integer.parseInt("quantity"));
+        return orderRep.save(order);
     }
 
     @DeleteMapping("/{id}")
@@ -60,6 +83,4 @@ public class OrderController {
         orderRep.deleteById(id);
         return true;
     }
-
-
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/mystyle.css" th:href="@{/css/mystyle.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body class="bg-dark">
+    <div class="container mt-5">
+        <form th:action="@{/result}" method="Post">
+            <div class="row align-items-center">
+                <div class="col-3">
+                    <input th:name="item" type="text" class="form-control" value="Item name">
+                </div>    
+                <div class="col-3">
+                    <input th:name="price" type="text" class="form-control" value="Price">
+                </div>
+                <div class="col-3">
+                    <input  th:name="quantity" type="text" class="form-control" value="Quantity">
+                </div>
+                <div class="col-3 text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="result" class="btn btn-primary">Go to orders</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script type="text/javascript" src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="../static/js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+</html>
