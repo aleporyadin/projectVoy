@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
-    // custom query to search to item by name
+    // custom query to search to item by name & id
     List<Order> findByItem(String item);
     Order findById(int id);
 
