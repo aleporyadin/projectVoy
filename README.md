@@ -1,8 +1,8 @@
-### projectVoy
+# projectVoy
 
  Test Java project
 ____
-### Get started
+# Get started
  clone repository 
 ```
  git clone https://github.com/aleporyadin/projectVoy.git
@@ -35,16 +35,16 @@ spring.datasource.driver-class-name =com.mysql.jdbc.Driver
  spring.datasource.password=
  "" -> password DB
 
-## Routing
+# Routing
 ```
 localhost:8080/
 ```
-# Open index file where  inputs: 
+### Open index file where  inputs: 
  +  Item         (name product)
  +  price        (price product)
  +  quantity     (count product)  
 ( **no data validation!**)
-# Three buttons:
+### Three buttons:
  - Submit        ( redirect user to page **"localhost:8080/result"** where there is information about items and add product to DB) 
  - Go to orders  ( redirect user to page **"localhost:8080/result"** )
  - Search item   ( redirect user to page localhost:8080/search where there is input  search entered product)
