@@ -7,14 +7,15 @@ ____
 ```
  git clone https://github.com/aleporyadin/projectVoy.git
 ```
- I recommended you use **Intellij idea**
 ____
-   Open project in Intellij idea
-   Next add **configuration Spring Boot**
-   Use XAMPP or OpenServer ( to run localhost)
-   On PhpMyAdmin create DB - **testvoy**
-   And import file in project - **"testvoy.sql"** 
-   Check file **"application.properties"**
+    I recommended you use **Intellij idea**
+    Open project in Intellij idea
+    Next add **configuration Spring Boot**
+    Use XAMPP or OpenServer ( to run localhost)
+    On PhpMyAdmin create DB - **testvoy**
+    And import file in project - **"testvoy.sql"** 
+    Check file **"application.properties"**
+   
 # Set up setting DB example 
 ```
 spring.jpa.hibernate.ddl-auto=update
