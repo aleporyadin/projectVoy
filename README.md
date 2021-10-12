@@ -53,10 +53,12 @@ localhost:8080/
 localhost:8080/result
 ```
 ### Open result.html file where there is input:
- + Go to create ( redirect user to page **"localhost:8080/"** )
+ + Go to create  ( redirect user to page **"localhost:8080/"** )
  + Table(Id, item, price, quantity, time) where descriptive information about items
 ```
 localhost:8080/search
 ``` 
 ### Open result.html file where there is input:
- + Search( redirect user to page **"localhost:8080/result"** where there is in search item, **or all if the required item was not found**)
+ + Search(input) and Submit(button)   ( redirect user to page **"localhost:8080/result"** where there is in search item, **or all if the required item was not found**)
+ + Go to create order                 ( redirect user to page **"localhost:8080/"**)
+ + Go to orders                       (redirect user to page **"localhost:8080/result"**)
