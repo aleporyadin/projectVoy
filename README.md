@@ -39,7 +39,7 @@ spring.datasource.driver-class-name =com.mysql.jdbc.Driver
 ```
 localhost:8080/
 ```
-### Open index file where  inputs: 
+### Open index.html file where there is inputs: 
  +  Item         (name product)
  +  price        (price product)
  +  quantity     (count product)  
@@ -49,3 +49,14 @@ localhost:8080/
  - Go to orders  ( redirect user to page **"localhost:8080/result"** )
  - Search item   ( redirect user to page localhost:8080/search where there is input  search entered product)
  
+```
+localhost:8080/result
+```
+### Open result.html file where there is input:
+ + Go to create ( redirect user to page **"localhost:8080/"** )
+ + Table(Id, item, price, quantity, time) where descriptive information about items
+```
+localhost:8080/search
+``` 
+### Open result.html file where there is input:
+ + Search( redirect user to page **"localhost:8080/result"** where there is in search item, **or all if the required item was not found**)
