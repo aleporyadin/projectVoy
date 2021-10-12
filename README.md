@@ -15,14 +15,14 @@
  And import file in project "testvoy.sql" 
 ### Check file "application.properties"
  Set up setting DB example 
-    ```
-    spring.jpa.hibernate.ddl-auto=update
-    spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/testvoy?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false
-    spring.datasource.username=root
-    spring.datasource.password=
-    spring.datasource.driver-class-name =com.mysql.jdbc.Driver
-    #spring.jpa.show-sql: true
-    ```
+```
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/testvoy?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.driver-class-name =com.mysql.jdbc.Driver
+#spring.jpa.show-sql: true
+```
 #Where
  spring.datasource.url  ... testvoy..
  testvoy -> name DB 
