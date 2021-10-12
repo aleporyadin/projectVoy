@@ -40,12 +40,12 @@ spring.datasource.driver-class-name =com.mysql.jdbc.Driver
 localhost:8080/
 ```
 Open index file where  inputs: 
-+  Item(name product)
-+  price(price product)
-+  quantity(count product)  
- ( **no data validation!**)
-Three buttons 
++  Item         (name product)
++  price        (price product)
++  quantity     (count product)  
+ ( **no data validation!**) \
+Three buttons:
 - Submit        ( redirect user to page **"localhost:8080/result"** where there is information about items and add product to DB) 
 - Go to orders  ( redirect user to page **"localhost:8080/result"** )
-- Search item   ( redirect user to page localhost:8080/search where there isinput to)
+- Search item   ( redirect user to page localhost:8080/search where there is input  search entered product)
  
