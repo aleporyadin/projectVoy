@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,12 +21,14 @@
                 <div class="col-3">
                     <input  th:name="quantity" type="text" class="form-control" value="Quantity">
                 </div>
-                <div class="col-3 text-center">
+                <div class="col-3 d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <a href="result" class="btn btn-primary">Go to orders</a>
+                    <a href="search" class="btn btn-primary">Search item</a>
                 </div>
             </div>
         </form>
+
     </div>
 </body>
 <script type="text/javascript" src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>

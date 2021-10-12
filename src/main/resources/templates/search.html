@@ -10,29 +10,22 @@
 </head>
 <body class="bg-dark">
 <div class="container mt-5">
-    <a href="/" class="btn btn-primary mt-3 mb-3">Go to create</a>
+    <div class="container mt-5">
+        <form th:action="@{/search}" method="Post">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <input th:name="item" type="text" class="form-control" value="Item to search">
+                </div>
 
-    <table class="table table-hover table-dark">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Article</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Second left to Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:each="order : ${orders}">
-                <td th:text="${order.getId()}"></td>
-                <td th:text="${order.getItem()}"></td>
-                <td th:text="${order.getPrice()}"></td>
-                <td th:text="${order.getQuantity()}"></td>
-                <td th:text="${(600 - (order.getTimeLeft()))}"></td>
+                <div class="col-4 d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/" class="btn btn-primary">Create Order</a>
+                    <a href="search" class="btn btn-primary">Search item</a>
+                </div>
+            </div>
+        </form>
+    </div>
 
-            </tr>
-        </tbody>
-    </table>
 </div>
 </body>
 <script type="text/javascript" src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>

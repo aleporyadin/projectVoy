@@ -24,12 +24,12 @@ public class OrderController {
         return modelAndView;
     }
 
-    @PostMapping("/result")
-    public ModelAndView listItem(@RequestParam(name="item") String _item,
-                                 @RequestParam(name="price") int _price,
-                                 @RequestParam(name="quantity") int _quantity
-            ,Model model) {
 
+    @RequestMapping (value = "/result",method = RequestMethod.POST)
+    public ModelAndView listItem(@RequestParam(required=false,name="item") String _item,
+                                 @RequestParam(required=false,name="price") Integer _price,
+                                 @RequestParam(required=false,name="quantity") Integer _quantity
+            ,Model model) {
         for (Order o : orderRep.findAll()) {
             Date now = new Date();
             if ((now.getTime()/1000 - o.getLive_Timer()) >= 600)
@@ -41,14 +41,12 @@ public class OrderController {
         }catch (Exception e){
             System.out.println("err");
         }
-
-
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("result");
         modelAndView.addObject("orders", orderRep.findAll());
         return modelAndView;
     }
-    @GetMapping("/result")
+    @RequestMapping (value = "/result",method = RequestMethod.GET)
     public ModelAndView listItem(Model model) {
         for (Order o : orderRep.findAll()) {
             Date now = new Date();
@@ -60,11 +58,7 @@ public class OrderController {
 
         return new ModelAndView("result");
     }
-    @PostMapping("/search")
-    public List<Order> search(@RequestBody Map<String, String> body){
-        String searchItem = body.get("item");
-        return orderRep.findByItem(searchItem);
-    }
+
 
     @PutMapping("/{id}")
     public Order update(@PathVariable String id, @RequestBody Map<String, String> body){

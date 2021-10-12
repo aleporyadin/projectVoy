@@ -50,7 +50,10 @@ public class Order {
                 ", time to end: " + getLive_Timer() + '\''+
                 '}';
     }
-
+    public long getTimeLeft(){
+        Date now = new Date();
+        return (now.getTime()/1000 - this.getLive_Timer());
+    }
 
     //Getters & Setters
     public int getId() {
