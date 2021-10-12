@@ -62,3 +62,6 @@ localhost:8080/search
  + Search(input) and Submit(button)   ( redirect user to page **"localhost:8080/result"** where there is in search item, **or all if the required item was not found**)
  + Go to create order                 ( redirect user to page **"localhost:8080/"**)
  + Go to orders                       (redirect user to page **"localhost:8080/result"**)
+
+# Check folder screenshots
++ screenshots test Postman and 'test' values
